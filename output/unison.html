@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Patrick Sheridan" />
+    <meta name="robots" content="index, follow"/>
+
+    <meta property="og:title" content="Unison"/>
+    <meta property="og:url" content="/unison.html"/>
+    <meta property="og:site_name" content="sheridp"/>
+    <meta property="og:type" content="article"/>
+
+    <link rel="canonical" href="/unison.html" />
+
+    <title>Unison | sheridp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="/theme/css/main.css" />
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+</head>
+
+<body id="index">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <header id="banner" >
+                <h1>
+                    <a href="/">sheridp </a>
+                </h1>
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li ><a href="/pages/about.html">About</a></li>
+                            <li ><a href="/pages/publications.html">Publications</a></li>
+                            <li class="active"><a href="/category/articles.html">Articles</a></li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </header><!-- /#banner -->
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="/unison.html" rel="bookmark"
+             title="Permalink to Unison">Unison</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="/author/patrick-sheridan.html">Patrick Sheridan</a>
+    </address>
+
+    in <a href="/category/articles.html">Articles</a>
+
+    on 2015-08-05
+
+
+
+
+    
+</footer><!-- /.post-info -->
+
+        <p>Unison is a super useful file synchronization tool that I use every day. You can think of it like a manual and more configurable version of Dropbox or Google Drive.  This has the advantage that you control when syncing happens and it's relatively easy to ignore certain files or folders. You can also sync from anywhere on your hard drive rather than having to use a designated folder as with the above options.</p>
+<p>While there are packaged solutions using apt-get and brew, Unison is very picky about which versions are running on the computers you are trying to sync. You also need to watch which version of OCAML (a prerequisite of Unison) you are using. Since I use both OSX and Ubuntu and the package versions differ, I found it easier to install everything from source.</p>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<div class="section" id="etags-if-you-don-t-have-it-already">
+<h3>ETAGS (if you don't have it already)</h3>
+<ul class="simple">
+<li>sudo apt-get install exuberant-ctags</li>
+</ul>
+</div>
+<div class="section" id="ocaml">
+<h3>OCAML</h3>
+<ul class="simple">
+<li>wget <a class="reference external" href="http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.2.tar.gz">http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.2.tar.gz</a></li>
+<li>tar xvzf ocaml-4.02.2.tar.gz</li>
+<li>cd ocaml-4.02.2</li>
+<li>./configure -prefix /opt</li>
+<li>make world.opt -j4</li>
+<li>make install</li>
+<li>export PATH=$PATH:/opt/bin</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Unison</h3>
+<ul class="simple">
+<li>wget unison-2.48.3.tar.gz</li>
+<li>tar xvzf unison-2.48.3.tar.gz</li>
+<li>cd unison-2.48.3</li>
+<li>make UISTYLE=text -j4</li>
+<li>sudo mv unison /usr/bin/unison</li>
+</ul>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration</h2>
+<p>Unison configuration profiles are stored in the $HOME/.unison directory. Create a file in that folder and name it whatever you want--you will use this name when you want to synchronize using this profile. An example configuration might look like the following:</p>
+<pre class="code literal-block">
+root = /Volumes/Elements/project
+root = ssh://my-remote-server.com//opt/project
+
+backup = Name *           #not strictly necessary
+backuplocation = local    #these options will create backups when you sync
+
+ignore = Name *.o
+ignore = Name .DS_store
+ignore = Name Thumbs.db
+ignore = Name *.bin
+ignore = Name build
+ignore = Name {.svn}
+ignore = Name *.elf
+ignore = Name *.pyc
+perms = 0             #file permissions not synched
+</pre>
+</div>
+
+
+      </div><!-- /.entry-content -->
+
+    </article>
+  </section>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <address>
+                    <p>
+                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                    </p>
+                    <p>
+                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
+                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
+                    </p>
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
