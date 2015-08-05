@@ -5,14 +5,14 @@
     <meta name="author" content="Patrick Sheridan" />
     <meta name="robots" content="index, follow"/>
 
-    <meta property="og:title" content="Homepage"/>
-    <meta property="og:url" content="/pages/homepage.html"/>
+    <meta property="og:title" content="Pelican"/>
+    <meta property="og:url" content="/pelican.html"/>
     <meta property="og:site_name" content="sheridp"/>
-    <meta property="og:type" content="website"/>
+    <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="/pages/homepage.html" />
+    <link rel="canonical" href="/pelican.html" />
 
-    <title>Homepage | sheridp</title>
+    <title>Pelican | sheridp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
@@ -42,7 +42,9 @@
                 <nav class="navbar">
                     <div class="navbar-inner">
                         <ul class="nav">
-                            <li class="active"><a href="/pages/homepage.html">Homepage</a></li>
+                            <li ><a href="/pages/about.html">About</a></li>
+                            <li ><a href="/pages/publications.html">Publications</a></li>
+                            <li class="active"><a href="/category/articles.html">Articles</a></li>
                         </ul>
 
                     </div>
@@ -54,12 +56,49 @@
     <div class="row-fluid">
         <div class="span10 offset1">
             <div class="row-fluid">
-        
-<section  >    
-    <h1 class="entry-title">Homepage</h1>
+<div class="span10 offset1">
+  <section>
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="/pelican.html" rel="bookmark"
+             title="Permalink to Pelican">Pelican</a></h1>
+      </header>
+      <div class="entry-content">
+<footer class="post-info">
+    <address class="vcard author">
+        by <a class="url fn" href="/author/patrick-sheridan.html">Patrick Sheridan</a>
+    </address>
+
+    in <a href="/category/articles.html">Articles</a>
+
+    on 2015-08-05
+
+
+
+
     
-    <p>This is a test page.</p>
-</section>
+</footer><!-- /.post-info -->
+
+        <p>Pelican is a static site generator, meaning that it takes content (in the form of reStuctredText or Markdown usually) and templates (Python based Jinja2 usually) and combines them to produce static HTML and CSS.</p>
+<p>While there are many <a class="reference external" href="http://docs.getpelican.com/en/3.6.2/quickstart.html">tutorials</a> that explain how to install and configure Pelican, this page is mainly to serve as a reminder for me on how add content.</p>
+<ol class="arabic simple">
+<li>Add content to <cite>content</cite> folder. The subfolder determines the category with <cite>pages</cite> being a special category for more permanent, non-blog type content.</li>
+<li>In main folder, type <cite>source bin/activate</cite></li>
+<li>Type <cite>pelican</cite></li>
+<li><cite>cd output; python -m pelican.server</cite></li>
+<li>Browse to localhost:8000 to preview changes</li>
+<li>In main folder, <cite>ghp-import output</cite></li>
+<li><cite>git push git&#64;github.com:sheridp/sheridp.github.io.git gh-pages:master</cite></li>
+<li>Verify changes at sheridp.github.io</li>
+</ol>
+
+
+      </div><!-- /.entry-content -->
+
+    </article>
+  </section>
+</div>
             </div>
         </div>
     </div>

@@ -80,14 +80,14 @@
     
 </footer><!-- /.post-info -->
 
-        <p>Unison is a super useful file synchronization tool that I use every day. You can think of it like a manual and more configurable version of Dropbox or Google Drive.  This has the advantage that you control when syncing happens and it's relatively easy to ignore certain files or folders. You can also sync from anywhere on your hard drive rather than having to use a designated folder as with the above options.</p>
-<p>While there are packaged solutions using apt-get and brew, Unison is very picky about which versions are running on the computers you are trying to sync. You also need to watch which version of OCAML (a prerequisite of Unison) you are using. Since I use both OSX and Ubuntu and the package versions differ, I found it easier to install everything from source.</p>
+        <p>Unison is an extremely useful file synchronization tool that I use every day. You can think of it like a manual--and more configurable--version of Dropbox or Google Drive.  Unison has the advantage that you control when syncing happens and it's relatively easy to configure it to ignore certain files or folders. You can also sync from anywhere on your hard drive rather than having to use a designated folder as with the above programs.</p>
+<p>While there are packaged Unison solutions using apt-get and brew, Unison is very particular about which versions are running on the computers you are trying to sync. You also need to watch which version of OCAML (a prerequisite of Unison) you are using. Since I use both OSX and Ubuntu and the package versions differ if their repositories, I found it easier to install everything from source.</p>
 <div class="section" id="installation">
 <h2>Installation</h2>
-<div class="section" id="etags-if-you-don-t-have-it-already">
-<h3>ETAGS (if you don't have it already)</h3>
+<div class="section" id="build-essentials-if-you-don-t-have-it-already">
+<h3>Build-Essentials (if you don't have it already)</h3>
 <ul class="simple">
-<li>sudo apt-get install exuberant-ctags</li>
+<li>sudo apt-get install build-essential exuberant-ctags</li>
 </ul>
 </div>
 <div class="section" id="ocaml">
@@ -115,24 +115,27 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration</h2>
-<p>Unison configuration profiles are stored in the $HOME/.unison directory. Create a file in that folder and name it whatever you want--you will use this name when you want to synchronize using this profile. An example configuration might look like the following:</p>
+<p>Unison configuration profiles are stored in the $HOME/.unison directory. Create a file in that folder and name it whatever you want--you will use this name when you want to synchronize using this profile. An example configuration profile, named Project, might look like the following:</p>
 <pre class="code literal-block">
-root = /Volumes/Elements/project
-root = ssh://my-remote-server.com//opt/project
+root = /Volumes/BackupDrive/project                #Location of local version
+root = ssh://my-remote-server.com//opt/project     #Location of remote version
 
 backup = Name *           #not strictly necessary
 backuplocation = local    #these options will create backups when you sync
+                          #you can read more in the docs
 
 ignore = Name *.o
 ignore = Name .DS_store
 ignore = Name Thumbs.db
 ignore = Name *.bin
-ignore = Name build
-ignore = Name {.svn}
-ignore = Name *.elf
+ignore = Name *.svn
 ignore = Name *.pyc
 perms = 0             #file permissions not synched
 </pre>
+</div>
+<div class="section" id="synchronizing">
+<h2>Synchronizing</h2>
+<p>Once you've got everything installed and configured, synchronization is simple. Simply type <cite>unison Project</cite>  (where Project is the name of the profile) at the command line. The program will then ask you for each file how you want to push (either from local to remote or remote to local). It will also make suggestions based on file modification time and you can configure it to automatically use those suggestions without prompting for approval. Once you've decided how all the files should be synchronized, Unison will prompt you to proceed. The rest is automatic.</p>
 </div>
 
 
