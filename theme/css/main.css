@@ -1,6 +1,8 @@
 @import url("pygment.css");
 @import url(//fonts.googleapis.com/css?family=Overlock:400,700,900);
 @import url(//fonts.googleapis.com/css?family=PT+Mono);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:300);
+
 /*
  *  Name: Fresh
  *  Date: February 2013
@@ -147,7 +149,8 @@ img.left, figure.left {
   padding: 2.5em 0 0 0; }
   #banner h1 {
     font-size: 4em;
-    font-family: 'Overlock';
+    font-family: 'Josefin Slab', serif;
+    letter-spacing: .4em;
     line-height: 1;
     text-align: center; }
     #banner h1 a:link, #banner h1 a:visited {
